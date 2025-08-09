@@ -1,0 +1,11 @@
+# Eclipse settings
+.classpath
+.project
+.settings/
+
+# macOS system files
+.DS_Store
+
+# Build output folders
+target/
+out/

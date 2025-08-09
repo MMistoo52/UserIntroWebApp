@@ -1,0 +1,19 @@
+# Ignore compiled classes and build output
+/build/
+/target/
+/bin/
+
+# Ignore IDE-specific files
+.classpath
+.project
+.settings/
+
+# Ignore server/workspace temp files
+.metadata/
+Servers/
+
+# Ignore secret config
+dbconfig.properties
+
+# Ignore logs
+*.log
