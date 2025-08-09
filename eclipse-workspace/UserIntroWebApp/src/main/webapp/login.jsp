@@ -3,14 +3,17 @@
   <body>
     <h2>Login</h2>
     <form action="LoginServlet" method="post">
-      Username: <input name="name" required><br><br>
-      Password: <input type="password" name="password" required><br><br>
+      <label>Username:</label><br>
+      <input name="name" required><br><br>
+
+      <label>Password:</label><br>
+      <input type="password" name="password" required><br><br>
+
       <button type="submit">Login</button>
     </form>
 
-    <p style="color:red;">
-      ${param.error != null ? param.error : "" }
-    </p>
+    <p style="color:green;"><%= request.getParameter("msg") != null ? request.getParameter("msg") : "" %></p>
+    <p style="color:red;"><%= request.getParameter("error") != null ? request.getParameter("error") : "" %></p>
 
     <p>New user? <a href="index.jsp">Register here</a></p>
   </body>

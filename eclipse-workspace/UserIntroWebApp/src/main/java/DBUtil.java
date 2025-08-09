@@ -4,12 +4,8 @@ import java.sql.DriverManager;
 import java.util.Properties;
 
 public class DBUtil {
-
     public static Connection getConnection() throws Exception {
-        // DEBUG: where is the classloader looking?
-        System.out.println("DEBUG URL  = " + DBUtil.class.getClassLoader().getResource("dbconfig.properties"));
-        System.out.println("DEBUG ROOT = " + DBUtil.class.getClassLoader().getResource(""));
-
+        // Load dbconfig.properties from classpath (WEB-INF/classes or src/main/resources)
         Properties props = new Properties();
         InputStream in = DBUtil.class.getClassLoader().getResourceAsStream("dbconfig.properties");
         if (in == null) {
@@ -17,9 +13,9 @@ public class DBUtil {
         }
         props.load(in);
 
-        String url  = props.getProperty("db.url");       // jdbc:mysql://localhost:3306/userintrodb
-        String user = props.getProperty("db.username");   // root
-        String pass = props.getProperty("db.password");   // your pw
+        String url  = props.getProperty("db.url");
+        String user = props.getProperty("db.username");
+        String pass = props.getProperty("db.password");
 
         Class.forName("com.mysql.cj.jdbc.Driver");
         return DriverManager.getConnection(url, user, pass);

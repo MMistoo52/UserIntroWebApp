@@ -14,6 +14,7 @@ public class IntroductionServlet extends HttpServlet {
     if (s == null || s.getAttribute("userId") == null) {
       resp.sendRedirect("login.jsp?error=Please+login"); return;
     }
+
     int userId = (int) s.getAttribute("userId");
     String userName = (String) s.getAttribute("userName");
 
@@ -42,6 +43,7 @@ public class IntroductionServlet extends HttpServlet {
       e.printStackTrace();
       out.println("<tr><td colspan='2'>Error loading intro.</td></tr>");
     }
+
     out.println("</table><p><a href='logout.jsp'>Logout</a></p>");
     out.println("</body></html>");
   }
